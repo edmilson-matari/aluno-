@@ -131,7 +131,7 @@ export default function Dashboard() {
       </main>
 
       {/* Botão flutuante mobile */}
-      <button className="fixed bottom-8 right-6 bg-indigo-600 text-white p-6 rounded-full shadow-2xl hover:shadow-indigo-500/70 hover:scale-110 transition-all z-20 md:hidden">
+      <button onClick={() => {navigate('/project/novo')}} className="fixed bottom-8 right-6 bg-indigo-600 text-white p-6 rounded-full shadow-2xl hover:shadow-indigo-500/70 hover:scale-110 transition-all z-20 md:hidden">
         <Plus size={36} />
       </button>
       <footer>
