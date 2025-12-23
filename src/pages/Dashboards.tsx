@@ -1,6 +1,8 @@
 // src/pages/Dashboard.tsx
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Plus, Edit2, Calendar, Trophy, BarChart3 } from 'lucide-react';
+import AppFooter from '../components/Footer';
 
 interface Project {
   id: number;
@@ -30,6 +32,7 @@ const mockProjects: Project[] = [
 export default function Dashboard() {
   const [projects] = useState<Project[]>(mockProjects);
   const userName = 'Francisco Afonso';
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -80,7 +83,7 @@ export default function Dashboard() {
         </div>
 
         {/* Botão Adicionar Projeto */}
-        <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-wider py-6 rounded-3xl shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 flex items-center justify-center gap-4 mb-12 text-lg">
+        <button onClick={() => {navigate('/project/novo')}} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-wider py-6 rounded-3xl shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 flex items-center justify-center gap-4 mb-12 text-lg">
           <Plus size={32} />
           Adicionar ou Atualizar Projeto
         </button>
@@ -105,7 +108,7 @@ export default function Dashboard() {
                       Última atualização: {new Date(project.lastUpdate).toLocaleDateString('pt-AO')}
                     </p>
                   </div>
-                  <button className="p-4 bg-indigo-600/30 rounded-2xl hover:bg-indigo-600/50 transition">
+                  <button onClick={() => {navigate(`/project/edit/${project.id}`)}} className="p-4 bg-indigo-600/30 rounded-2xl hover:bg-indigo-600/50 transition">
                     <Edit2 size={24} className="text-indigo-300" />
                   </button>
                 </div>
@@ -146,6 +149,9 @@ export default function Dashboard() {
       <button className="fixed bottom-8 right-6 bg-indigo-600 text-white p-6 rounded-full shadow-2xl hover:shadow-indigo-500/70 hover:scale-110 transition-all z-20 md:hidden">
         <Plus size={36} />
       </button>
+      <footer>
+        <AppFooter/>
+      </footer>
     </div>
   );
 }

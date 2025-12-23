@@ -29,12 +29,12 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: '/project/new',
+        path: '/project/novo',
         element: <ProjectForm />,
       },
       {
         path: '/project/edit/:id',
-        element: <ProjectForm />,
+        element: <EditProject />,
       },
     ],
   },
@@ -58,6 +58,7 @@ const router = createBrowserRouter([
 
 // Import necessário para Navigate
 import { Navigate } from 'react-router-dom';
+import EditProject from './pages/EditProject';
 
 function App() {
   return (
