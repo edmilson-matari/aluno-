@@ -1,12 +1,15 @@
 // src/components/AppHeader.tsx
-import { BarChart3, LogOut } from 'lucide-react';
+import { BarChart3, LogOut, Shield } from 'lucide-react'; // ← Adicionado Shield
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import clsx from 'clsx'; 
+import clsx from 'clsx';
 
 export default function AppHeader() {
   const { userName, logout } = useAuth();
   const navigate = useNavigate();
+
+  // Simulação: em produção, isso viria do backend/user role
+  const isAdmin = true; // Mude para false ou use contexto real: const { isAdmin } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -19,7 +22,6 @@ export default function AppHeader() {
         <div className="flex items-center justify-between">
           {/* Left: Avatar + Saudação */}
           <div className="flex items-center gap-4 sm:gap-5">
-            {/* Avatar com gradiente premium */}
             <div className="relative">
               <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 rounded-2xl flex items-center justify-center text-white font-extrabold text-xl sm:text-2xl shadow-2xl ring-4 ring-white/10">
                 {userName.split(' ').map(n => n[0]).join('').toUpperCase()}
@@ -27,7 +29,6 @@ export default function AppHeader() {
               <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-400 rounded-full ring-4 ring-black/50"></div>
             </div>
 
-            {/* Saudação */}
             <div className="animate-fadeIn">
               <h1 className="text-lg sm:text-xl font-bold text-white leading-tight">
                 Olá, <span className="bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">{userName.split(' ')[0]}!</span>
@@ -46,13 +47,28 @@ export default function AppHeader() {
               aria-label="Ver estatísticas"
             >
               <BarChart3 
-                size={24} 
                 className={clsx(
                   "text-indigo-300",
                   "w-6 h-6 sm:w-7 sm:h-7"
                 )} 
               />
             </button>
+
+            {/* Botão Admin - só aparece se for admin */}
+            {isAdmin && (
+              <button
+                onClick={() => navigate('/admin')}
+                className="p-3 sm:p-4 rounded-2xl bg-indigo-600/30 hover:bg-indigo-600/50 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/40"
+                aria-label="Painel Administrativo"
+              >
+                <Shield 
+                  className={clsx(
+                    "text-indigo-300",
+                    "w-6 h-6 sm:w-7 sm:h-7"
+                  )} 
+                />
+              </button>
+            )}
 
             {/* Botão de Logout */}
             <button
@@ -61,7 +77,6 @@ export default function AppHeader() {
               aria-label="Sair da conta"
             >
               <LogOut 
-                size={22} 
                 className={clsx(
                   "text-red-400",
                   "w-5.5 h-5.5 sm:w-6.5 sm:h-6.5"

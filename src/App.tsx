@@ -7,7 +7,9 @@ import { ProtectedRoute } from './components/ui/ProtectedRoute';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';        // corrigido
 import Dashboard from './pages/Dashboards';  // corrigido (assumindo nome correto)
-import ProjectForm from './pages/ProjectsForm'; // corrigido
+import ProjectForm from './pages/ProjectsForm'; //
+import AdminDashboard from './pages/AdmiDashboard';
+import AdminProjectDetail from './pages/AdminProjectsDetails';
 
 const router = createBrowserRouter([
   // Rotas públicas (não autenticadas)
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
     path: '/signup', // ou '/registar' se preferir em português
     element: <SignUp />,
   },
+  {
+  path: '/admin',
+  element: <AdminDashboard />,
+},
+{
+  path: '/admin/project/:projectId',
+  element: <AdminProjectDetail />,
+},
 
   // Rotas protegidas
   {
