@@ -68,7 +68,10 @@ export default function Dashboard() {
         </div>
 
         {/* Botão Adicionar Projeto */}
-        <button onClick={() => {navigate('/project/novo')}} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-wider py-6 rounded-3xl shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 flex items-center justify-center gap-4 mb-12 text-lg">
+        <button
+          onClick={() => navigate('/project/new')} // corrigido 'novo' para 'new' (consistência com rota)
+          className="hidden sm:block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-wider py-6 rounded-3xl shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 flex items-center justify-center gap-4 text-lg"
+        >
           <Plus size={32} />
           Adicionar ou Atualizar Projeto
         </button>
