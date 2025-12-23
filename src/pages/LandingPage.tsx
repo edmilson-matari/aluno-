@@ -25,7 +25,7 @@ export default function LandingPage() {
           {/* Navegação - Hidden em mobile, visible em md+ */}
           <nav className="hidden md:flex items-center gap-8 text-gray-300">
             <a href="#sobre" className="hover:text-white transition">Sobre</a>
-            <a href="#projetos" className="hover:text-white transition">Projetos</a>
+            <a href="#projetos" className="hover:text-white transition">Projectos</a>
             <a href="#noticias" className="hover:text-white transition">Notícias</a>
             <a href="#contato" className="hover:text-white transition">Contato</a>
           </nav>
@@ -112,7 +112,7 @@ export default function LandingPage() {
           {/* Imagem 2 - Timeline/Gantt */}
           <div className="group relative rounded-3xl overflow-hidden shadow-2xl hover:shadow-indigo-500/30 transition-all duration-500 hover:-translate-y-2 mt-8 sm:mt-16">
             <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+              src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Timeline e planejamento de tarefas em equipe"
               className="w-full h-64 sm:h-80 object-cover transition-transform duration-700 group-hover:scale-110"
             />
@@ -193,7 +193,7 @@ export default function LandingPage() {
         {/* Imagem */}
         <div className="relative overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?w=800&q=80"
+            src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Projeto destaque"
             className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
           />
@@ -221,7 +221,7 @@ export default function LandingPage() {
 
         <div className="relative overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?w=800&q=80"
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Projeto em desenvolvimento"
             className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
           />
