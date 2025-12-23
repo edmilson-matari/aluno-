@@ -4,6 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';         // ← NOVO
+import { useAuth } from '../context/AuthContext';
 import Logo from '../components/Logo';
 
 const schema = z.object({
@@ -12,10 +14,13 @@ const schema = z.object({
   remember: z.boolean().optional(),
 });
 
+
 type FormData = z.infer<typeof schema>;
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();                    // ← NOVO
+  const { login } = useAuth();
   const {
     register,
     handleSubmit,
@@ -24,28 +29,32 @@ export default function SignIn() {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    console.log('Login dados:', data);
-    // Simulação de chamada à API
+ const onSubmit = async (data: FormData) => {
+    console.log('Tentativa de login:', data);
+
+    // Simulação de chamada à API (substitua por sua autenticação real no futuro)
     await new Promise(resolve => setTimeout(resolve, 1500));
-    alert('Login realizado com sucesso! Bem-vindo de volta.');
-    // Aqui você redireciona para o dashboard: router.push('/dashboard')
+
+    // ✅ Marca o usuário como autenticado no contexto
+    login(); // Você pode passar o nome se quiser: login('Francisco Afonso')
+
+    // ✅ Redireciona para o dashboard
+    navigate('/dashboard', { replace: true });
   };
 
   return (
     <div className="min-h-screen bg-gradient-custom flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-card w-full max-w-md p-8 md:p-10">
         {/* Título */}
-        <div>
-
-        <Logo/>
+        <div className='flex justify-center items-center'>
+            <Logo/>
         </div>
         <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-2">
-          Sign in
+          Entrar
         </h1>
         
         <p className="text-center text-muted mb-8">
-          Welcome back! Please login to your account
+          Bem-vindo de volta! Por favor entre na sua conta
         </p>
 
         {/* Formulário */}
@@ -53,7 +62,7 @@ export default function SignIn() {
           {/* Email */}
           <div className="space-y-2">
             <label htmlFor="email" className="block text-sm font-semibold text-gray-700">
-              Email address
+              endereço de email
             </label>
             <input
               id="email"
@@ -72,7 +81,7 @@ export default function SignIn() {
           {/* Senha com toggle */}
           <div className="space-y-2">
             <label htmlFor="password" className="block text-sm font-semibold text-gray-700">
-              Password
+              Palavra-passe
             </label>
             <div className="relative">
               <input
@@ -106,10 +115,10 @@ export default function SignIn() {
                 className="rounded border-gray-300 text-primary focus:ring-primary"
                 {...register('remember')}
               />
-              <span className="text-sm text-gray-600">Remember me</span>
+              <span className="text-sm text-gray-600">Lembrar-me</span>
             </label>
             <a href="/forgot-password" className="text-sm text-primary font-medium hover:underline">
-              Forgot password?
+              Esqueceu da palavra-passe?
             </a>
           </div>
 
@@ -146,7 +155,7 @@ export default function SignIn() {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   />
                 </svg>
-                Signing in...
+                Entrando...
               </>
             ) : (
               'Sign in'
@@ -156,9 +165,9 @@ export default function SignIn() {
 
         {/* Link para Sign Up */}
         <p className="text-center text-sm text-text-muted mt-8">
-          Don't have an account?{' '}
+          Não tem uma conta?{' '}
           <a href="/signup" className="text-primary font-semibold hover:underline">
-            Sign up
+            Criar conta
           </a>
         </p>
       </div>
