@@ -69,7 +69,7 @@ export default function LandingPage() {
 
         {/* Subheadline */}
         <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-          Plataforma exclusiva que conecta alunos talentosos a projetos reais, com mentoria direta da equipe técnica da FFNEOCOMMERCE e visibilidade no mercado de trabalho.
+          Plataforma exclusiva que conecta alunos talentosos a projetos reais, com mentoria direta da equipe técnica da AFRIKNEW e visibilidade no mercado de trabalho.
         </p>
 
         {/* CTAs */}
@@ -141,7 +141,7 @@ export default function LandingPage() {
             Por que o Aluno+?
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Uma iniciativa da FFNEOCOMMERCE para formar a próxima geração de desenvolvedores através de projetos reais, mentoria direta e visibilidade no mercado de trabalho.
+            Uma iniciativa da AFRIKNEW para formar a próxima geração de desenvolvedores através de projetos reais, mentoria direta e visibilidade no mercado de trabalho.
           </p>
         </div>
       </section>
@@ -193,7 +193,7 @@ export default function LandingPage() {
         {/* Imagem */}
         <div className="relative overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1626785774625-dd1d3826d4f3?w=800&q=80"
+            src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?w=800&q=80"
             alt="Projeto destaque"
             className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
           />
@@ -215,13 +215,13 @@ export default function LandingPage() {
       <article className="group relative bg-gray-900 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
         <div className="absolute top-6 left-6 z-10">
           <span className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full shadow-lg">
-            Projeto
+            Projecto
           </span>
         </div>
 
         <div className="relative overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1558655146-9f40138ed1e8?w=800&q=80"
+            src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?w=800&q=80"
             alt="Projeto em desenvolvimento"
             className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
           />
