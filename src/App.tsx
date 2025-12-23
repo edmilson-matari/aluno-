@@ -1,9 +1,70 @@
+// src/App.tsx
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/signup";
+import { AuthProvider } from './context/AuthContext';
+import { ProtectedRoute } from './components/ui/ProtectedRoute';
 
-export default function App() {
-  return (<>
-  <SignIn/>
-  </>)
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';        // corrigido
+import Dashboard from './pages/Dashboards';  // corrigido (assumindo nome correto)
+import ProjectForm from './pages/ProjectsForm'; // corrigido
+
+const router = createBrowserRouter([
+  // Rotas públicas (não autenticadas)
+  {
+    path: '/signin',
+    element: <SignIn />,
+  },
+  {
+    path: '/signup', // ou '/registar' se preferir em português
+    element: <SignUp />,
+  },
+
+  // Rotas protegidas
+  {
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <Dashboard />,
+      },
+      {
+        path: '/project/new',
+        element: <ProjectForm />,
+      },
+      {
+        path: '/project/edit/:id',
+        element: <ProjectForm />,
+      },
+    ],
+  },
+
+  // Redirecionamentos
+  {
+    path: '/',
+    element: <ProtectedRoute />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/dashboard" replace />,
+      },
+    ],
+  },
+  {
+    path: '*',
+    element: <Navigate to="/dashboard" replace />,
+  },
+]);
+
+// Import necessário para Navigate
+import { Navigate } from 'react-router-dom';
+
+function App() {
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }
+
+export default App;

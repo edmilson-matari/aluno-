@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
+import Logo from '../components/Logo';
 
 const schema = z.object({
   email: z.string().email('E-mail inválido'),
@@ -35,9 +36,14 @@ export default function SignIn() {
     <div className="min-h-screen bg-gradient-custom flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-card w-full max-w-md p-8 md:p-10">
         {/* Título */}
+        <div>
+
+        <Logo/>
+        </div>
         <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-2">
           Sign in
         </h1>
+        
         <p className="text-center text-muted mb-8">
           Welcome back! Please login to your account
         </p>
