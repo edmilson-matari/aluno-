@@ -14,6 +14,10 @@ import AdminProjectDetail from './pages/AdminProjectsDetails';
 const router = createBrowserRouter([
   // Rotas públicas (não autenticadas)
   {
+    path: '/',
+    element: <LandingPage/>
+  },
+  {
     path: '/signin',
     element: <SignIn />,
   },
@@ -51,7 +55,7 @@ const router = createBrowserRouter([
 
   // Redirecionamentos
   {
-    path: '/',
+    path: '/dashboard',
     element: <ProtectedRoute />,
     children: [
       {
@@ -69,6 +73,7 @@ const router = createBrowserRouter([
 // Import necessário para Navigate
 import { Navigate } from 'react-router-dom';
 import EditProject from './pages/EditProject';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
