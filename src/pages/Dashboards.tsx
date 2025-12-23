@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Edit2, Calendar, Trophy, BarChart3 } from 'lucide-react';
 import AppFooter from '../components/Footer';
+import AppHeader from '../components/AppHeader';
 
 interface Project {
   id: number;
@@ -37,22 +38,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header com glassmorphism */}
-      <header className="fixed top-0 left-0 right-0 z-10 bg-black/40 backdrop-blur-lg border-b border-white/10">
-        <div className="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-              FA
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-white">Olá, {userName}!</h1>
-              <p className="text-sm text-white/70">Continue construindo seu futuro 🚀</p>
-            </div>
-          </div>
-          <button className="p-3 rounded-xl bg-white/10 hover:bg-white/20 transition">
-            <BarChart3 size={24} className="text-white" />
-          </button>
-        </div>
-      </header>
+      <AppHeader/>
 
       {/* Espaço para header fixo */}
       <div className="pt-24" />
