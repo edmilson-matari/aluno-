@@ -1,7 +1,7 @@
 // src/pages/Dashboard.tsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Edit2, Calendar, Trophy, BarChart3 } from 'lucide-react';
+import { Plus, Edit2, Calendar, Trophy } from 'lucide-react';
 import AppFooter from '../components/Footer';
 import AppHeader from '../components/AppHeader';
 
@@ -32,7 +32,6 @@ const mockProjects: Project[] = [
 
 export default function Dashboard() {
   const [projects] = useState<Project[]>(mockProjects);
-  const userName = 'Francisco Afonso';
   const navigate = useNavigate()
 
   return (

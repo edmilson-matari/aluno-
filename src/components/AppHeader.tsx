@@ -2,7 +2,7 @@
 import { BarChart3, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import clsx from 'clsx'; // ← IMPORTANTE
+import clsx from 'clsx'; 
 
 export default function AppHeader() {
   const { userName, logout } = useAuth();
@@ -49,7 +49,7 @@ export default function AppHeader() {
                 size={24} 
                 className={clsx(
                   "text-indigo-300",
-                  "w-6 h-6 sm:w-7 sm:h-7" // ← SOLUÇÃO CORRETA: tamanhos responsivos via classe
+                  "w-6 h-6 sm:w-7 sm:h-7"
                 )} 
               />
             </button>
