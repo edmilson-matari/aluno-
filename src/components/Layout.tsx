@@ -8,7 +8,6 @@ import {
   Menu,
   Home,
   FolderOpen,
-  Search,
   Plus,
   ChevronLeft,
 } from "lucide-react";
@@ -51,13 +50,13 @@ const itensMenu: MenuItem[] = [
   //{ id: 'calendar', label: 'Calendário', icone: Calendar, notificacoes: 0 },
   //{ id: 'contacts', label: 'Contatos', icone: Users, notificacoes: 0 },
   //{ id: 'notifications', label: 'Notificações', icone: Bell, notificacoes: 12 },
-  {
-    id: "search",
-    label: "Pesquisar",
-    icone: Search,
-    notificacoes: 0,
-    url: "/search",
-  },
+//   {
+//     id: "search",
+//     label: "Pesquisar",
+//     icone: Search,
+//     notificacoes: 0,
+//     url: "/search",
+//   },
 ];
 
 interface AsideProps {

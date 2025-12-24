@@ -4,6 +4,7 @@
 
 import React, { useState } from 'react';
 import { Search, Calendar, MoreHorizontal, Grid3X3, List, Star } from 'lucide-react';
+import ProjectDetailsModal from './ProjectDetail';
 
 interface Project {
   id: number;
@@ -170,6 +171,7 @@ const ProjectCardSquare: React.FC<{ project: Project }> = ({ project }) => {
 
 const AllProjectsSection: React.FC = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <section className="mt-12 lg:mt-20">
@@ -209,13 +211,16 @@ const AllProjectsSection: React.FC = () => {
       </div>
 
       {/* GRID QUADRADO RESPONSIVO - SEM OVERFLOW */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 w-full">
         {mockProjects.map((project) => (
-          <div key={project.id} className="aspect-square">
+          <button key={project.id} onClick={() => setSelectedProject(project)} className="text-left">
             <ProjectCardSquare project={project} />
-          </div>
+          </button>
         ))}
       </div>
+
+      {/* Modal */}
+      <ProjectDetailsModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 };
