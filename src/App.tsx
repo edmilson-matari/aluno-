@@ -1,79 +1,89 @@
 // src/App.tsx
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { AuthProvider } from './context/AuthContext';
-import { ProtectedRoute } from './components/ui/ProtectedRoute';
+import { AuthProvider } from "./context/AuthContext";
+import { ProtectedRoute } from "./components/ui/ProtectedRoute";
 
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';        // corrigido
-import Dashboard from './pages/Dashboards';  // corrigido (assumindo nome correto)
-import ProjectForm from './pages/ProjectsForm'; //
-import AdminDashboard from './pages/AdmiDashboard';
-import AdminProjectDetail from './pages/AdminProjectsDetails';
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import ProjectForm from "./pages/ProjectsForm"; //
+import AdminDashboard from "./pages/AdmiDashboard";
+import AdminProjectDetail from "./pages/AdminProjectsDetails";
+import EditProject from "./pages/EditProject";
+import LandingPage from "./pages/LandingPage";
+import Layout from "./components/Layout";
+import HomePage from "./pages/Home";
+import AllProjectsSection from "./components/AllProjectsSection";
 
 const router = createBrowserRouter([
   // Rotas públicas (não autenticadas)
   {
-    path: '/',
-    element: <LandingPage/>
+    path: "/",
+    element: <LandingPage />,
   },
   {
-    path: '/signin',
+    path: "/signin",
     element: <SignIn />,
   },
   {
-    path: '/signup', // ou '/registar' se preferir em português
+    path: "/signup", // ou '/registar' se preferir em português
     element: <SignUp />,
   },
   {
-  path: '/admin',
-  element: <AdminDashboard />,
-},
-{
-  path: '/admin/project/:projectId',
-  element: <AdminProjectDetail />,
-},
+    path: "/admin",
+    element: <AdminDashboard />,
+  },
+  {
+    path: "/admin/project/:projectId",
+    element: <AdminProjectDetail />,
+  },
 
   // Rotas protegidas
   {
     element: <ProtectedRoute />,
     children: [
       {
-        path: '/dashboard',
-        element: <Dashboard />,
-      },
-      {
-        path: '/project/novo',
-        element: <ProjectForm />,
-      },
-      {
-        path: '/project/edit/:id',
-        element: <EditProject />,
+        element: <Layout />,
+        children: [
+          {
+            path: '/home',
+            element: <HomePage/>
+          },
+          {
+            path: '/project',
+            element: <AllProjectsSection/>
+          },
+          {
+            path: "/project/novo",
+            element: <ProjectForm />,
+          },
+          {
+            path: "/project/edit/:id",
+            element: <EditProject />,
+          },
+        ],
       },
     ],
   },
 
   // Redirecionamentos
-  {
-    path: '/dashboard',
-    element: <ProtectedRoute />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="/dashboard" replace />,
-      },
-    ],
-  },
-  {
-    path: '*',
-    element: <Navigate to="/dashboard" replace />,
-  },
+  // {
+  //   path: "/dashboard",
+  //   element: <Dashboard />,
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: <Navigate to="/dashboard" replace />,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: "*",
+  //   element: <Navigate to="/dashboard" replace />,
+  // },
 ]);
 
-// Import necessário para Navigate
-import { Navigate } from 'react-router-dom';
-import EditProject from './pages/EditProject';
-import LandingPage from './pages/LandingPage';
+// Import necessário para Navigat
 
 function App() {
   return (

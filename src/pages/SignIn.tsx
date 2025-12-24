@@ -34,7 +34,7 @@ export default function SignIn() {
   const onSubmit = async () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
     login('Usuário'); // Nome genérico ou viria do backend
-    navigate('/dashboard', { replace: true });
+    navigate('/home', { replace: true });
   };
 
   return (
@@ -64,10 +64,6 @@ export default function SignIn() {
             </div>
 
             <div className="space-y-6 max-w-lg mx-auto lg:mx-0">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Bem-vindo<br />
-                de volta
-              </h2>
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
                 Continue desenvolvendo projetos reais com mentoria da Afriknew.
               </p>
