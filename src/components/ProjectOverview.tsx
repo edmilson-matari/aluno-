@@ -1,7 +1,3 @@
-// src/components/dashboard/ProjectOverview.tsx
-// Versão corrigida: responsividade perfeita em todos os breakpoints
-// Problema resolvido: cards não estouravam a tela em mobile/tablet e ficavam desalinhados
-// Agora: stack vertical completo em mobile, 1 coluna em tablet pequeno, 2 colunas só em lg+
 
 import React from "react";
 import { Calendar, MoreHorizontal, Star } from "lucide-react";
@@ -27,7 +23,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   isFavorite = false,
   tasks,
   activities,
-  members,
 }) => {
   const statusColor =
     status === "In Progress"
@@ -94,21 +89,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
       {/* Footer */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-auto">
-        <div className="flex -space-x-3">
-          {members.slice(0, 4).map((avatar, index) => (
-            <img
-              key={index}
-              src={avatar}
-              alt={`Membro ${index + 1}`}
-              className="w-9 h-9 md:w-10 md:h-10 rounded-full border-4 border-white shadow-md"
-            />
-          ))}
-          {members.length > 4 && (
-            <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-slate-200 border-4 border-white flex items-center justify-center text-xs font-bold text-slate-600">
-              +{members.length - 4}
-            </div>
-          )}
-        </div>
+        
 
         <div className="flex flex-wrap gap-6 text-sm text-slate-600">
           <div className="flex items-center">
@@ -165,7 +146,7 @@ const ProjectOverview: React.FC = () => {
     <section className="mt-16 lg:mt-20">
       {/* Header da seção - responsivo */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 lg:mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+        <h2 className="text-2xl md:text-3xl text-slate-900">
           Visão geral do projeto
         </h2>
         <div className="flex items-center space-x-4">

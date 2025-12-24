@@ -1,6 +1,3 @@
-// src/components/projects/AllProjectsSection.tsx
-// Cards QUADRADOS reais, responsivos, sem overflow horizontal em mobile
-// Testado em 320px (iPhone SE) - cabe perfeitamente, sem scroll horizontal
 
 import React, { useState } from 'react';
 import { Search, Calendar, MoreHorizontal, Grid3X3, List, Star } from 'lucide-react';
@@ -49,7 +46,7 @@ const mockProjects: Project[] = [
     isFavorite: false,
     tasks: 18,
     activities: 86,
-    projectImage: 'https://images.unsplash.com/photo-1618044633854-07182ca4b8ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    projectImage: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     notaMaxima: '10,0',
     startDate: '15 Out, 2025',
     priority: 'Média',

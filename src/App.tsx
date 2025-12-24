@@ -6,7 +6,6 @@ import { ProtectedRoute } from "./components/ui/ProtectedRoute";
 
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import ProjectForm from "./pages/ProjectsForm"; //
 import AdminDashboard from "./pages/AdmiDashboard";
 import AdminProjectDetail from "./pages/AdminProjectsDetails";
 import EditProject from "./pages/EditProject";
@@ -14,6 +13,7 @@ import LandingPage from "./pages/LandingPage";
 import Layout from "./components/Layout";
 import HomePage from "./pages/Home";
 import AllProjectsSection from "./components/AllProjectsSection";
+import ProjectsPage from "./components/CreateProjectModal";
 
 const router = createBrowserRouter([
   // Rotas públicas (não autenticadas)
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/project/novo",
-            element: <ProjectForm />,
+            element: <ProjectsPage />,
           },
           {
             path: "/project/edit/:id",

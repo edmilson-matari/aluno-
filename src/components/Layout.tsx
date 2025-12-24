@@ -1,16 +1,5 @@
-// src/components/layout/Layout.tsx
-// Layout completo do Taskora - Versão FINAL 100% funcional
-// Sidebar fixo com scroll interno, header sincronizado, main com padding dinâmico
-// Tema idêntico à landing page (purple/blue gradient, slate tones, sombras modernas)
-
 import React, { useState } from "react";
-import {
-  Menu,
-  Home,
-  FolderOpen,
-  Plus,
-  ChevronLeft,
-} from "lucide-react";
+import { Menu, Home, FolderOpen, Plus, ChevronLeft } from "lucide-react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 // Dados mock
@@ -50,13 +39,13 @@ const itensMenu: MenuItem[] = [
   //{ id: 'calendar', label: 'Calendário', icone: Calendar, notificacoes: 0 },
   //{ id: 'contacts', label: 'Contatos', icone: Users, notificacoes: 0 },
   //{ id: 'notifications', label: 'Notificações', icone: Bell, notificacoes: 12 },
-//   {
-//     id: "search",
-//     label: "Pesquisar",
-//     icone: Search,
-//     notificacoes: 0,
-//     url: "/search",
-//   },
+  //   {
+  //     id: "search",
+  //     label: "Pesquisar",
+  //     icone: Search,
+  //     notificacoes: 0,
+  //     url: "/search",
+  //   },
 ];
 
 interface AsideProps {
@@ -93,7 +82,7 @@ const AsideNavigation: React.FC<AsideProps> = ({
         className={`
           fixed top-0 bottom-0 left-0 z-50 bg-slate-50 border-r border-slate-200
           flex flex-col shadow-2xl
-          transition-all duration-300 ease-in-out
+          transition-all duration-300 ease-in-out 
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0
           ${isExpanded ? "w-72" : "w-20"}
@@ -222,6 +211,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onMenuToggle, sidebarExpanded }) => {
+  const navigate = useNavigate();
   return (
     <header
       className={`
@@ -239,11 +229,13 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, sidebarExpanded }) => {
           >
             <Menu className="w-6 h-6" />
           </button>
-          
         </div>
 
         <div className="flex items-center space-x-5">
-          <button className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200">
+          <button
+            onClick={() => navigate("/project/novo")}
+            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
+          >
             <Plus className="w-5 h-5" />
             <span className="hidden sm:inline">Novo Projecto</span>
           </button>
@@ -253,7 +245,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, sidebarExpanded }) => {
             aria-label="Perfil do usuário"
           >
             <img
-              src="https://via.placeholder.com/44"
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Avatar do usuário"
               className="w-full h-full object-cover"
             />

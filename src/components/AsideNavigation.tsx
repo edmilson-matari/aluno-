@@ -12,20 +12,6 @@ import {
   LayoutDashboard, // Usado como fallback para Kanban
 } from 'lucide-react';
 
-// Se preferir instalar @heroicons/react v2 outline:
-// npm install @heroicons/react
-// E descomente as linhas abaixo substituindo os de lucide:
-// import {
-//   HomeIcon,
-//   DocumentIcon,
-//   CheckCircleIcon,
-//   CalendarIcon,
-//   UserGroupIcon,
-//   BellIcon,
-//   MagnifyingGlassIcon,
-//   ChevronLeftIcon,
-// } from '@heroicons/react/24/outline';
-
 const AsideNavigation = () => {
   const [expandido, setExpandido] = useState(true);
   const [menuAtivo, setMenuAtivo] = useState('home');

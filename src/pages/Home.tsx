@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div className="space-y-12">
       <div>
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-8">
+        <h2 className="text-3xl text-black-500 bg-clip-text mb-8">
           Visão Geral
         </h2>
         <DashboardStats />

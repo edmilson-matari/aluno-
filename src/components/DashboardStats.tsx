@@ -1,5 +1,3 @@
-// DashboardStats.tsx - Cards de estatísticas do Dashboard Home
-// Totalmente alinhado ao tema da landing page e do layout anterior: gradientes purple/blue, sombras suaves, tipografia moderna, arredondamentos e atenção obsessiva aos detalhes visuais.
 
 import React from 'react';
 import {
@@ -46,7 +44,7 @@ const StatCard: React.FC<StatCardProps> = ({
 
       {/* Título e comparação */}
       <p className="text-sm font-medium text-slate-600">{title}</p>
-      <p className="text-xs text-slate-500 mt-1">from last month</p>
+      <p className="text-xs text-slate-500 mt-1">Do último mês</p>
     </div>
   );
 };
@@ -54,7 +52,7 @@ const StatCard: React.FC<StatCardProps> = ({
 const DashboardStats: React.FC = () => {
   const stats = [
     {
-      title: 'Total Projects',
+      title: 'Projectos Totais',
       value: 12,
       change: 2,
       icon: FolderOpen,
@@ -62,7 +60,7 @@ const DashboardStats: React.FC = () => {
       changePositive: true,
     },
     {
-      title: 'In Progress',
+      title: 'Em Progresso',
       value: 7,
       change: 3,
       icon: Clock,
@@ -70,7 +68,7 @@ const DashboardStats: React.FC = () => {
       changePositive: true,
     },
     {
-      title: 'Completed',
+      title: 'Completos',
       value: 4,
       change: 1,
       icon: CheckCircle,
@@ -78,7 +76,7 @@ const DashboardStats: React.FC = () => {
       changePositive: true,
     },
     {
-      title: 'Overdue',
+      title: 'Atrasado',
       value: 1,
       change: 2,
       icon: AlertCircle,
